@@ -85,6 +85,3 @@
 - **Nombrado de variables y funciones**: Uso de nombres descriptivos y estilo de código.
 - **Comentarios**: Importancia de comentar el código para mejorar la legibilidad y mantenimiento.
 
----
-
-Este archivo README proporciona un resumen de los conceptos y ejemplos cubiertos en la primera clase de C++. Asegúrate de revisar cada sección y practicar con los ejemplos proporcionados para fortalecer tu comprensión.
