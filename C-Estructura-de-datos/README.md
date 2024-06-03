@@ -1,5 +1,3 @@
-# C-Estructura-de-datos
-[Estructura de datos](C-Estructura-de-datos)
 # Estructuras de Datos en C++
 
 Este repositorio contiene implementaciones de diversas estructuras de datos comúnmente utilizadas en C++, junto con ejemplos de su uso y explicaciones sobre su funcionamiento.
@@ -7,7 +5,6 @@ Este repositorio contiene implementaciones de diversas estructuras de datos com�
 ## Contenido
 
 1. **Lista enlazada**
-[[Lista enlazada](Lista Enlazada)]
     - Implementación de una lista enlazada, incluyendo inserción, eliminación y búsqueda de elementos.
 
 2. **Pila (Stack)**
