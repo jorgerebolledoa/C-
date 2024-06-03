@@ -6,8 +6,8 @@ Este repositorio contiene implementaciones de diversas estructuras de datos com�
 
 ## Contenido
 
-1. **[Lista enlazada](Lista Enlazada)**
-[Lista enlazada](Lista Enlazada)
+1. **Lista enlazada**
+[[Lista enlazada](Lista Enlazada)]
     - Implementación de una lista enlazada, incluyendo inserción, eliminación y búsqueda de elementos.
 
 2. **Pila (Stack)**
