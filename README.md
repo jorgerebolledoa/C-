@@ -1,5 +1,5 @@
 # Estructura de datos
-[C-Estructura-de-datos-main](Estructura de datos)
+[https://github.com/jorgerebolledoa/C-/tree/master/C-Estructura-de-datos](Estructura de datos)
 # Clase 1 Paradigmas POO
 
 ## Contenidos Vistos
