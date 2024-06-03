@@ -81,7 +81,30 @@
     std::cout << "El número ingresado es: " << numero << std::endl;
     ```
 
-### 8. Buenas Prácticas
+### 8. Funciones `friend`
+- **Uso de funciones `friend`**: Permitir que funciones externas accedan a los miembros privados de una clase.
+    ```cpp
+    class Punto {
+    private:
+        int x, y;
+
+    public:
+        Punto(int x, int y) : x(x), y(y) {}
+
+        // Declaración de una función friend para la sobrecarga del operador +
+        friend Punto operator+(const Punto& p1, const Punto& p2);
+    };
+
+    // Definición de la función friend para la sobrecarga del operador +
+    Punto operator+(const Punto& p1, const Punto& p2) {
+        return Punto(p1.x + p2.x, p1.y + p2.y);
+    }
+    ```
+
+  - **Explicación**:
+    - `friend` permite que una función externa acceda a los miembros privados y protegidos de una clase.
+    - En el ejemplo, la función `operator+` es una función friend de la clase `Punto`, lo que le permite acceder directamente a `x` y `y`.
+
+### 9. Buenas Prácticas
 - **Nombrado de variables y funciones**: Uso de nombres descriptivos y estilo de código.
 - **Comentarios**: Importancia de comentar el código para mejorar la legibilidad y mantenimiento.
-
