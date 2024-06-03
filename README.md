@@ -1,4 +1,6 @@
-# Clase 1
+# Estructura de datos
+[C-Estructura-de-datos-main](Estructura de datos)
+# Clase 1 Paradigmas POO
 
 ## Contenidos Vistos
 
