@@ -1,0 +1,24 @@
+# Archivos de compilación de C++
+*.o
+*.out
+*.exe
+*.dll
+
+# Archivos generados por herramientas de desarrollo
+.vscode/
+.idea/
+
+# Archivos de caché
+*.suo
+*.cache
+*.log
+
+# Archivos de configuración
+*.config
+*.ini
+
+# Archivos de respaldo
+*~
+
+# Otros archivos generados
+CMakeLists.txt.user
