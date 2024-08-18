@@ -67,7 +67,7 @@ void insertionSort(Punto arr[], int n)
 {
 	for (int i = 1; i < n; ++i) {
 		double key = arr[i].getDistancia();
-		int j = i - 1;https://www.onlinegdb.com/fork/xGLzZinZFV#_editor_2309275561
+		int j = i - 1;
 		while (j >= 0 && arr[j].getDistancia() > key) {
 			arr[j + 1] = arr[j];
 			j = j - 1;

@@ -1,4 +1,5 @@
-
+#ifndef PUNTO_H
+#define PUNTO_H
 #include <stdio.h>
 #include <iostream>
 #include <cmath>
@@ -40,3 +41,4 @@ Punto::Punto(double a, double b, double c, double d){
 void Punto::ver(){
     std::cout<<"("<<x<<","<<y<<")"<<std::endl;
 }
+#endif // PUNTO_H

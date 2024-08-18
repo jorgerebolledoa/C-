@@ -1,3 +1,6 @@
+#ifndef TRIANGULO_H
+#define TRIANGULO_H
+
 #include "Punto.h"
 class Triangulo {
     private: 
@@ -15,3 +18,5 @@ class Triangulo {
         Punto getp2(){ return p2; }
         Punto getp3(){ return p3; }
 };
+
+#endif // TRIANGULO_H
