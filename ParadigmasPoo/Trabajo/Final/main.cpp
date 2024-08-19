@@ -90,6 +90,32 @@ void ordena_lista(Punto array_puntos[], int cant_puntos) {
 	insertionSort(array_puntos_ordenada, cant_puntos);
 }
 
+typedef struct Nodo_M {
+    Punto centroide;
+    struct Nodo_M* link;
+} Nodo_M;
+
+typedef Nodo_M* Lista_M;
+
+void AgregarCentroide(Lista_M& L, const Punto& centroide) {
+    Nodo_M* nuevoNodo_M = new Nodo_M;
+	nuevoNodo_M->centroide = centroide;
+    nuevoNodo_M->link = L;
+    L = nuevoNodo_M;
+}
+//recorre la Lista_M
+void MostrarLista_M(Lista_M L) {//se uniran los centroides con un -->
+    Nodo_M* p = L;
+    while (p != nullptr) {
+        p->centroide.ver();
+        if (p->link != nullptr) {
+            cout << " --> ";
+        }
+        p = p->link;
+    }
+    cout << endl;
+}
+
 vector<Punto> leer_puntos_desde_csv(const string& nombre_archivo) {
     vector<Punto> puntos;
     ifstream archivo(nombre_archivo);
