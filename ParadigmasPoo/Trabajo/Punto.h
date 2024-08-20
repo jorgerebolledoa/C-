@@ -21,6 +21,7 @@ class Punto{
         
         int getx(){ return x; }
         int gety(){ return y; }
+        int getz(){ return z; }
         double getDistancia(){ return distancia; }
         
         void ver();

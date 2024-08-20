@@ -141,7 +141,23 @@ vector<Punto> leer_puntos_desde_csv(const string& nombre_archivo) {
     
     return puntos;
 }
+void guardar_lista_pares_en_csv(Lista L, const string& nombre_archivo) {
+    ofstream archivo(nombre_archivo);
+    if (!archivo.is_open()) {
+        cout << "Error al abrir el archivo." << endl;
+        return;
+    }
 
+    archivo << "Punto1_X,Punto1_Y,Punto1_Z,Punto2_X,Punto2_Y,Punto2_Z" << endl;
+    Lista p = L;
+    while (p != NULL) {
+        archivo << p->p1.getx() << "," << p->p1.gety() << "," << p->p1.getz() << ",";
+        archivo << p->p2.getx() << "," << p->p2.gety() << "," << p->p2.getz() << endl;
+        p = p->link;
+    }
+    archivo.close();
+    cout << "Lista de pares guardada en " << nombre_archivo << endl;
+}
 int main() {
     // Leer puntos desde un archivo CSV
     string nombre_archivo = "puntos.csv";
@@ -175,41 +191,43 @@ int main() {
     
     // Mostrar lista de pares
     mostrar(lista_punto_pares);
+	// Guardar la lista de pares en un archivo CSV
+    guardar_lista_pares_en_csv(lista_punto_pares, "pares_puntos.csv");
 
 	//Leer los puntos e inicializarlos en un array cualquiera[100]. Parte del Azi.
 	//Ordenar la lista segC:n distancia con ordena_lista.
 	//montar grafo usando lista enlazada de a pares punto p1 hace arista con punto p2 y eso conoforma el primer elemento.
 
 	//Definimos listas
-//	Punto lista_puntos[SIZE];
-	Punto aux[SIZE];
+    //Punto lista_puntos[SIZE];
+	//Punto aux[SIZE];
 	//Lista lista_punto_pares = NULL;
 	//Definimos Puntos
-	Punto p1(0,0,0,0);
-	Punto p2(4,5,0,0);
-	Punto p3(-3,10,0,0);
-	Punto p4(7,-9,0,0);
+	//Punto p1(0,0,0,0);
+	//Punto p2(4,5,0,0);
+	//Punto p3(-3,10,0,0);
+	//Punto p4(7,-9,0,0);
 	//Agregamos a lista
-	lista_puntos[0] = p1;
-	lista_puntos[1] = p2;
-	lista_puntos[2] = p3;
-	lista_puntos[3] = p4;
+	//lista_puntos[0] = p1;
+	//lista_puntos[1] = p2;
+	//lista_puntos[2] = p3;
+	//lista_puntos[3] = p4;
 	//Ordenamos la lista_puntos
-	ordena_lista(lista_puntos, 3);
+	//ordena_lista(lista_puntos, 3);
 	//mostrar
-	cout<<"Puntos ordenados"<<endl;
-	lista_puntos[0].ver();
-	lista_puntos[1].ver();
-	lista_puntos[2].ver();
-	lista_puntos[3].ver();
+	//cout<<"Puntos ordenados"<<endl;
+	//lista_puntos[0].ver();
+	//lista_puntos[1].ver();
+	//lista_puntos[2].ver();
+	//lista_puntos[3].ver();
 	//FUNCIONC
 	//Ahora agregamos los puntos a la lista de Pares;
-	int i = 0;
-	while(i<SIZE) {
-		agregarDerPares(lista_punto_pares, lista_puntos[i], lista_puntos[i+1]);
-		i = i+2;
-	}
-	mostrar(lista_punto_pares);
+	//int i = 0;
+	//while(i<SIZE) {
+	//	agregarDerPares(lista_punto_pares, lista_puntos[i], lista_puntos[i+1]);
+		//i = i+2;
+	//}
+	//mostrar(lista_punto_pares);
 	//mostrar
 
 
