@@ -24,7 +24,7 @@ class Punto{
         int getz(){ return z; }
         double getDistancia(){ return distancia; }
         
-        void ver();
+        void ver()const ;
 
 };
 Punto::Punto(){
@@ -39,7 +39,7 @@ Punto::Punto(double a, double b, double c, double d){
     z = c;
     distancia = d;
 }
-void Punto::ver(){
+void Punto::ver()const {
     std::cout<<"("<<x<<","<<y<<")"<<std::endl;
 }
 #endif // PUNTO_H

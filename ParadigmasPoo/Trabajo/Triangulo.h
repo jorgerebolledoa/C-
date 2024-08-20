@@ -14,9 +14,15 @@ class Triangulo {
             double yCentroide = (p1.gety() + p2.gety() + p3.gety()) / 3;
             return Punto(xCentroide, yCentroide, -1, -1);
         }
-        Punto getp1(){ return p1; }
-        Punto getp2(){ return p2; }
-        Punto getp3(){ return p3; }
+        Punto getp1()const { return p1; }
+        Punto getp2()const { return p2; }
+        Punto getp3()const { return p3; }
+        void mostrar()const;
 };
+void Triangulo::mostrar()const{
+    p1.ver();
+    p2.ver();
+    p3.ver();
+}
 
 #endif // TRIANGULO_H

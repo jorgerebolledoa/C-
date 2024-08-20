@@ -158,6 +158,72 @@ void guardar_lista_pares_en_csv(Lista L, const string& nombre_archivo) {
     archivo.close();
     cout << "Lista de pares guardada en " << nombre_archivo << endl;
 }
+
+void generar_triangulos(const vector<Punto>& puntos, vector<Triangulo>& triangulos) {
+    int n = puntos.size();
+    for (int i = 0; i < n - 2; ++i) {
+        for (int j = i + 1; j < n - 1; ++j) {
+            for (int k = j + 1; k < n; ++k) {
+                Triangulo t(puntos[i], puntos[j], puntos[k]);
+                triangulos.push_back(t);
+            }
+        }
+    }
+}
+
+void mostrar_triangulos(const vector<Triangulo>& triangulos) {
+    for (size_t i = 0; i < triangulos.size(); ++i) {
+        cout << "Triángulo " << i + 1 << ":" << endl;
+        triangulos[i].mostrar();
+        cout << endl;
+    }
+}
+void guardar_triangulos_en_csv(const vector<Triangulo>& triangulos, const string& nombre_archivo) {
+    ofstream archivo(nombre_archivo);
+    if (!archivo.is_open()) {
+        cout << "Error al abrir el archivo." << endl;
+        return;
+    }
+
+    archivo << "Punto1_X,Punto1_Y,Punto1_Z,Punto2_X,Punto2_Y,Punto2_Z,Punto3_X,Punto3_Y,Punto3_Z" << endl;
+    for (const auto& t : triangulos) {
+        archivo << t.getp1().getx() << "," << t.getp1().gety() << "," << t.getp1().getz() << ",";
+        archivo << t.getp2().getx() << "," << t.getp2().gety() << "," << t.getp2().getz() << ",";
+        archivo << t.getp3().getx() << "," << t.getp3().gety() << "," << t.getp3().getz() << endl;
+    }
+
+    archivo.close();
+    cout << "Triángulos guardados en " << nombre_archivo << endl;
+}
+void generar_circunferencias(const vector<Triangulo>& triangulos, vector<Circunferencia>& circunferencias) {
+    for (const auto& triangulo : triangulos) {
+        Circunferencia c = Circunferencia_dado_un_triangulo(triangulo);
+        circunferencias.push_back(c);
+    }
+}
+void mostrar_circunferencias(const vector<Circunferencia>& circunferencias) {
+    for (size_t i = 0; i < circunferencias.size(); ++i) {
+        cout << "Circunferencia " << i + 1 << ": Centro (" << circunferencias[i].getx() << ", " 
+             << circunferencias[i].gety() << "), Radio = " << circunferencias[i].getradio() << endl;
+    }
+}
+
+void guardar_circunferencias_en_csv(const vector<Circunferencia>& circunferencias, const string& nombre_archivo) {
+    ofstream archivo(nombre_archivo);
+    if (!archivo.is_open()) {
+        cout << "Error al abrir el archivo." << endl;
+        return;
+    }
+
+    archivo << "Centro_X,Centro_Y,Radio" << endl;
+    for (const auto& c : circunferencias) {
+        archivo << c.getx() << "," << c.gety() << "," << c.getradio() << endl;
+    }
+
+    archivo.close();
+    cout << "Circunferencias guardadas en " << nombre_archivo << endl;
+}
+
 int main() {
     // Leer puntos desde un archivo CSV
     string nombre_archivo = "puntos.csv";
@@ -182,7 +248,7 @@ int main() {
     for (int i = 0; i < SIZE; ++i) {
         lista_puntos[i].ver();
     }
-    
+
     // Ahora agregamos los puntos a la lista de Pares
     Lista lista_punto_pares = NULL;
     for (int i = 0; i < SIZE - 1; i += 2) {
@@ -193,6 +259,27 @@ int main() {
     mostrar(lista_punto_pares);
 	// Guardar la lista de pares en un archivo CSV
     guardar_lista_pares_en_csv(lista_punto_pares, "pares_puntos.csv");
+
+
+
+	vector<Triangulo> triangulos;
+    generar_triangulos(puntos, triangulos);
+    
+    // Mostrar triángulos generados
+    mostrar_triangulos(triangulos);
+    
+    // Guardar triángulos en un archivo CSV
+    guardar_triangulos_en_csv(triangulos, "triangulos.csv");
+
+	// Generar circunferencias para cada triángulo
+    vector<Circunferencia> circunferencias;
+    generar_circunferencias(triangulos, circunferencias);
+    
+    // Mostrar circunferencias
+    mostrar_circunferencias(circunferencias);
+    
+    // Guardar circunferencias en un archivo CSV
+    guardar_circunferencias_en_csv(circunferencias, "circunferencias.csv");
 
 	//Leer los puntos e inicializarlos en un array cualquiera[100]. Parte del Azi.
 	//Ordenar la lista segC:n distancia con ordena_lista.
