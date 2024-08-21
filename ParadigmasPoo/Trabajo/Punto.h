@@ -6,25 +6,37 @@
 #include <algorithm>
 class Punto{
     private:
-        double x;
-        double y;
-        double z;
-        double distancia;
+        int x;
+        int y;
+        int z;
+        int distancia;
     public:
         Punto();
-        Punto(double, double, double, double);
+        Punto(int, int, int, int);
         
         void setx(int a){x = a;}
         void sety(int k){y = k;}
         void setz(int j){z = j;}
-        void setdistancia(double d){distancia = d;}
+        void setdistancia(int d){distancia = d;}
         
-        int getx(){ return x; }
-        int gety(){ return y; }
-        int getz(){ return z; }
-        double getDistancia(){ return distancia; }
+        int getx() const { return x; }
+        int gety() const { return y; }
+        int getz() const { return z; }
+        int getDistancia(){ return distancia; }
+        
         
         void ver()const ;
+
+        bool operator<(const Punto& other) const {
+            if (x == other.x) {
+                return y < other.y;
+            }
+            return x < other.x;
+        }
+
+        bool operator==(const Punto& other) const {
+            return x == other.x && y == other.y;
+        }
 
 };
 Punto::Punto(){
@@ -33,7 +45,7 @@ Punto::Punto(){
     z = 0;
     distancia = 0;
 }
-Punto::Punto(double a, double b, double c, double d){
+Punto::Punto(int a, int b, int c, int d){
     x = a;
     y = b;
     z = c;
